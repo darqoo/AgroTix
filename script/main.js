@@ -1,3 +1,3 @@
-window.addEventListener('load', () => {
-  $("#loader_bg").fadeOut();
-});
+// window.addEventListener('load', () => {
+//   $("#loader_bg").fadeOut();
+// });
