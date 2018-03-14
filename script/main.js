@@ -9,12 +9,19 @@ window.addEventListener('load', () => {
     $(".top_menu").hide();
     $(() => {
       $(window).scroll(() => {
-        if ($(window).scrollTop() >= 200) {
+        if ($(window).scrollTop() >= window.innerHeight / 9) {
           $('.top_menu').fadeIn();
           $('.home_page_logo').fadeOut();
-        } else if ($(window).scrollTop() <= 200) {
+        } else {
           $('.top_menu').fadeOut();
           $('.home_page_logo').fadeIn();
+        }
+      });
+      $(window).scroll(() => {
+        if ($(window).scrollTop() == 0) {
+          $('.bottom-menu').fadeIn();
+        } else {
+          $('.bottom-menu').fadeOut();
         }
       });
     });
