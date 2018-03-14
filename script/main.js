@@ -20,3 +20,7 @@ window.addEventListener('load', () => {
     });
   });
 })();
+
+$(window).click(function() {
+    $('.collapse').collapse('hide');
+})
