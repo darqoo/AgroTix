@@ -10,11 +10,9 @@
   transform: translate(-50%, -50%);
 }
 
-.dot1 {
+.dot1, .dot2 {
   position: absolute;
-  content: "";
-  left: 67px;
-  top: 18px;
+  content: '';
   width: 38px;
   height: 52px;
   -moz-border-radius: 30px 50px 0 0;
@@ -29,28 +27,17 @@
   -ms-transform-origin: 50px 0%;
   -o-transform-origin: 50px 0%;
   transform-origin: 50px 0%;
+}
+
+.dot1 {
+  left: 67px;
+  top: 18px;
   background: linear-gradient(81deg, rgb(255, 255, 255) 0%, rgb(237, 238, 229) 29%, rgb(227, 224, 193) 60%, rgb(243, 243, 242) 100%);
 }
 
 .dot2 {
-  position: absolute;
-  content: "";
   left: -40px;
   top: 0px;
-  width: 38px;
-  height: 52px;
-  -moz-border-radius: 30px 50px 0 0;
-  border-radius: 55px 87px 60px 81px;
-  -webkit-transform: rotate(201deg);
-  -moz-transform: rotate(201deg);
-  -ms-transform: rotate(201deg);
-  -o-transform: rotate(201deg);
-  transform: rotate(201deg);
-  -webkit-transform-origin: 50px 0%;
-  -moz-transform-origin: 50px 0%;
-  -ms-transform-origin: 50px 0%;
-  -o-transform-origin: 50px 0%;
-  transform-origin: 50px 0%;
   background: linear-gradient(90deg, rgb(255, 255, 255) 0%, rgb(237, 238, 229) 15%, rgb(227, 224, 193) 45%, rgb(243, 243, 242) 100%);
 }
 
@@ -63,20 +50,6 @@
   height: 52px;
   -moz-border-radius: 30px 50px 0 0;
   border-radius: 55px 87px 60px 81px;
-  -webkit-transform: rotate(21deg);
-  -moz-transform: rotate(21deg);
-  -ms-transform: rotate(21deg);
-  -o-transform: rotate(21deg);
-  transform: rotate(21deg);
-  -webkit-transform-origin: 93px -164%;
-  -moz-transform-origin: 93px -164%;
-  -ms-transform-origin: 93px -164%;
-  -o-transform-origin: 93px -164%;
-  transform-origin: 93px -164%;
-}
-
-.dot1::before {
-  left: 0px;
   -webkit-transform: rotate(45deg);
   -moz-transform: rotate(45deg);
   -ms-transform: rotate(45deg);
@@ -87,58 +60,39 @@
   -ms-transform-origin: 100% 100%;
   -o-transform-origin: 100% 100%;
   transform-origin: 100% 100%;
-  background: linear-gradient(42deg, rgb(255, 255, 255) 0%, rgb(237, 238, 229) 36%, rgb(227, 224, 193) 60%, rgb(243, 243, 242) 100%);
-}
-
-.dot2::before {
-    left: 0px;
-    -webkit-transform: rotate(45deg);
-    -moz-transform: rotate(45deg);
-    -ms-transform: rotate(45deg);
-    -o-transform: rotate(45deg);
-    transform: rotate(45deg);
-    -webkit-transform-origin: 100% 100%;
-    -moz-transform-origin: 100% 100%;
-    -ms-transform-origin: 100% 100%;
-    -o-transform-origin: 100% 100%;
-    transform-origin: 100% 100%;
-    background: linear-gradient(64deg, rgb(255, 255, 255) 0%, rgb(237, 238, 229) 36%, rgb(227, 224, 193) 56%, rgb(243, 243, 242) 83%);
 }
 
 .dot1::before {
   top: 20px;
   left: -27px;
+  background: linear-gradient(42deg, rgb(255, 255, 255) 0%, rgb(237, 238, 229) 36%, rgb(227, 224, 193) 60%, rgb(243, 243, 242) 100%);
 }
 
 .dot2::before {
   top: -14px;
-      left: -19px;
+  left: -19px;
+  background: linear-gradient(64deg, rgb(255, 255, 255) 0%, rgb(237, 238, 229) 36%, rgb(227, 224, 193) 56%, rgb(243, 243, 242) 83%);
+}
+
+.dot1::after, .dot2::after {
+  content: '';
+  position: absolute;
+  width: 1px;
+  height: 11px;
+  background-color: #bababa;
+  border-radius: 59% 101% 91% 108%;
+  transform: rotate(24deg);
+  border: 1px dotted #7d7d7d;
 }
 
 .dot1::after {
-  content: '';
-  position: absolute;
-  width: 1px;
-  height: 11px;
   top: 43%;
   left: -1px;
-  background-color: #bababa;
-  border-radius: 59% 101% 91% 108%;
-  transform: rotate(24deg);
-  border: 1px dotted #7d7d7d;
 }
 
 .dot2::after {
-  content: '';
-  position: absolute;
-  width: 1px;
-  height: 11px;
   top: 31%;
   left: 37px;
-  background-color: #bababa;
-  border-radius: 59% 101% 91% 108%;
-  transform: rotate(24deg);
-  border: 1px dotted #7d7d7d;
 }
 
 #preview-area {
@@ -154,16 +108,11 @@
   right: 0;
   left: 0;
   z-index: 10;
-  opacity: 0;
   margin-right: 40px;
   display: inline-block;
   position: relative;
   -webkit-transition: all 0.3s ease-in-out 0;
   transition: all 0.3s ease-in-out 0;
-}
-
-#spinners .selected {
-  opacity: 1
 }
 
 @keyframes bounce {
@@ -191,8 +140,8 @@
 }
 
 .chasing-dots .dot2 {
-  top: auto;
-  bottom: 50px;
+  top: 0;
+  bottom: 0;
   -webkit-animation-delay: -1.0s;
   animation-delay: -1.0s;
 }
