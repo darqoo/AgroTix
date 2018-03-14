@@ -70,12 +70,22 @@ body {
   width: 65%;
 }
 
+.footer-social-icons {
+  display: flex;
+}
+
 .footer-icon {
-  height: 50px;
+  height: 30px;
 }
 
 .footer-bar {
   width: 100%;
   align-items: center;
   justify-content: space-between;
+}
+
+@media (max-width: 768px) {
+  .center-mobile {
+    justify-content: center;
+  }
 }
