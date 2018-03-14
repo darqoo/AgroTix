@@ -13,6 +13,7 @@ html {
 }
 
 body {
+    background-color: #181e34;
     position: relative;
     overflow-x: hidden;
     font-family: Raleway-regular;

@@ -1,6 +1,6 @@
 .logo {
-  width: 20vw;
-  height: 9vh;
+  width: 282px;
+  height: 84px;
   background-image: url('../images/logo.png');
   background-repeat: no-repeat;
   background-size: contain;
@@ -19,11 +19,11 @@
   height: 52px;
   -moz-border-radius: 30px 50px 0 0;
   border-radius: 55px 87px 60px 81px;
-  -webkit-transform: rotate(21deg);
-  -moz-transform: rotate(21deg);
-  -ms-transform: rotate(21deg);
-  -o-transform: rotate(21deg);
-  transform: rotate(21deg);
+  -webkit-transform: rotate(201deg);
+  -moz-transform: rotate(201deg);
+  -ms-transform: rotate(201deg);
+  -o-transform: rotate(201deg);
+  transform: rotate(201deg);
   -webkit-transform-origin: 50px 0%;
   -moz-transform-origin: 50px 0%;
   -ms-transform-origin: 50px 0%;
@@ -35,23 +35,23 @@
 .dot2 {
   position: absolute;
   content: "";
-  left: 67px;
-  top: 18px;
+  left: -40px;
+  top: 0px;
   width: 38px;
   height: 52px;
   -moz-border-radius: 30px 50px 0 0;
   border-radius: 55px 87px 60px 81px;
-  -webkit-transform: rotate(21deg);
-  -moz-transform: rotate(21deg);
-  -ms-transform: rotate(21deg);
-  -o-transform: rotate(21deg);
-  transform: rotate(21deg);
+  -webkit-transform: rotate(201deg);
+  -moz-transform: rotate(201deg);
+  -ms-transform: rotate(201deg);
+  -o-transform: rotate(201deg);
+  transform: rotate(201deg);
   -webkit-transform-origin: 50px 0%;
   -moz-transform-origin: 50px 0%;
   -ms-transform-origin: 50px 0%;
   -o-transform-origin: 50px 0%;
   transform-origin: 50px 0%;
-  background: linear-gradient(81deg, rgb(255, 255, 255) 0%, rgb(237, 238, 229) 29%, rgb(227, 224, 193) 60%, rgb(243, 243, 242) 100%);
+  background: linear-gradient(90deg, rgb(255, 255, 255) 0%, rgb(237, 238, 229) 15%, rgb(227, 224, 193) 45%, rgb(243, 243, 242) 100%);
 }
 
 .dot1::before, .dot2::before {
@@ -61,7 +61,6 @@
   top: 5px;
   width: 38px;
   height: 52px;
-  background: #fffcdc;
   -moz-border-radius: 30px 50px 0 0;
   border-radius: 55px 87px 60px 81px;
   -webkit-transform: rotate(21deg);
@@ -76,7 +75,7 @@
   transform-origin: 93px -164%;
 }
 
-.dot1::before, .dot2::before {
+.dot1::before {
   left: 0px;
   -webkit-transform: rotate(45deg);
   -moz-transform: rotate(45deg);
@@ -91,14 +90,29 @@
   background: linear-gradient(42deg, rgb(255, 255, 255) 0%, rgb(237, 238, 229) 36%, rgb(227, 224, 193) 60%, rgb(243, 243, 242) 100%);
 }
 
+.dot2::before {
+    left: 0px;
+    -webkit-transform: rotate(45deg);
+    -moz-transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    -o-transform: rotate(45deg);
+    transform: rotate(45deg);
+    -webkit-transform-origin: 100% 100%;
+    -moz-transform-origin: 100% 100%;
+    -ms-transform-origin: 100% 100%;
+    -o-transform-origin: 100% 100%;
+    transform-origin: 100% 100%;
+    background: linear-gradient(64deg, rgb(255, 255, 255) 0%, rgb(237, 238, 229) 36%, rgb(227, 224, 193) 56%, rgb(243, 243, 242) 83%);
+}
+
 .dot1::before {
   top: 20px;
   left: -27px;
 }
 
 .dot2::before {
-  top: 20px;
-  left: -27px;
+  top: -14px;
+      left: -19px;
 }
 
 .dot1::after {
@@ -119,26 +133,17 @@
   position: absolute;
   width: 1px;
   height: 11px;
-  top: 43%;
-  left: -1px;
+  top: 31%;
+  left: 37px;
   background-color: #bababa;
   border-radius: 59% 101% 91% 108%;
   transform: rotate(24deg);
   border: 1px dotted #7d7d7d;
 }
 
-html {
-  height: 100%;
-  overflow: hidden
-}
-
-.active6 {
-  background-color: #181e34;
-}
-
 #preview-area {
   position: absolute;
-  top: 50%;
+  top: 65%;
   left: 50%;
   transform: translate(-50%, -50%);
 }
