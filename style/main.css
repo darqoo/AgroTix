@@ -84,8 +84,22 @@ body {
   justify-content: space-between;
 }
 
+.mobile-show {
+  display: none;
+}
+
 @media (max-width: 768px) {
   .center-mobile {
-    justify-content: center;
+    justify-content: space-between;
+  }
+  .mobile-hide {
+    display: none;
+  }
+  .mobile-show {
+    display: block;
+  }
+  .footer-bar {
+    flex-direction: row;
+    justify-content: space-between;
   }
 }
