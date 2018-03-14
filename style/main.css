@@ -99,7 +99,7 @@ body {
     display: block;
   }
   .footer-bar {
-    flex-direction: row;
+    flex-direction: row-reverse;
     justify-content: space-between;
   }
 }
