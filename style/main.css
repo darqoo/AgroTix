@@ -22,6 +22,10 @@ body {
     margin: 0;
 }
 
+.menu_logo {
+  width: 45%;
+}
+
 .h100 {
     height: 100%;
 }
