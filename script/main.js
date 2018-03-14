@@ -1,3 +1,6 @@
-// window.addEventListener('load', () => {
-//   $("#loader_bg").fadeOut();
-// });
+window.addEventListener('load', () => {
+  $("#loader").animate({
+    opacity: 0
+  }, 1000);
+
+});
