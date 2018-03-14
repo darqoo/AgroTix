@@ -1,8 +1,8 @@
-// window.addEventListener('load', () => {
-//   $("#loader").animate({
-//     opacity: 0
-//   }, 1000, 'linear', () => $("#loader").hide())
-// });
+window.addEventListener('load', () => {
+  $("#loader").animate({
+    opacity: 0
+  }, 1000, 'linear', () => $("#loader").hide())
+});
 
 (() => {
   $(document).ready(() => {
