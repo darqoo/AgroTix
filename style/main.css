@@ -22,13 +22,14 @@ body {
   margin: 0;
 }
 
-.right {
-  justify-content: flex-end;
+#major {
+  position: fixed;
+  width: 100vw;
+  height: 100vh;
 }
 
-.menu_burger {
-  text-align: center;
-  margin-top: 20px;
+.right {
+  justify-content: flex-end;
 }
 
 .menu_logo {
@@ -89,6 +90,10 @@ body {
 }
 
 @media (max-width: 768px) {
+  .menu_burger {
+    text-align: center;
+    margin-top: 20px;
+  }
   .mobile-hide {
     display: none;
   }
