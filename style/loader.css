@@ -5,9 +5,9 @@
   background-repeat: no-repeat;
   background-size: contain;
   position: absolute;
-    top: 30%;
-    left: 50%;
-    transform: translate(-50%,-50%);
+  top: 35%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }
 
 .dot1 {
@@ -24,11 +24,11 @@
   -ms-transform: rotate(21deg);
   -o-transform: rotate(21deg);
   transform: rotate(21deg);
-  -webkit-transform-origin: 93px -164%;
-  -moz-transform-origin: 93px -164%;
-  -ms-transform-origin: 93px -164%;
-  -o-transform-origin: 93px -164%;
-  transform-origin: 93px -164%;
+  -webkit-transform-origin: 50px 0%;
+  -moz-transform-origin: 50px 0%;
+  -ms-transform-origin: 50px 0%;
+  -o-transform-origin: 50px 0%;
+  transform-origin: 50px 0%;
   background: linear-gradient(81deg, rgb(255, 255, 255) 0%, rgb(237, 238, 229) 29%, rgb(227, 224, 193) 60%, rgb(243, 243, 242) 100%);
 }
 
@@ -46,11 +46,11 @@
   -ms-transform: rotate(21deg);
   -o-transform: rotate(21deg);
   transform: rotate(21deg);
-  -webkit-transform-origin: 93px -164%;
-  -moz-transform-origin: 93px -164%;
-  -ms-transform-origin: 93px -164%;
-  -o-transform-origin: 93px -164%;
-  transform-origin: 93px -164%;
+  -webkit-transform-origin: 50px 0%;
+  -moz-transform-origin: 50px 0%;
+  -ms-transform-origin: 50px 0%;
+  -o-transform-origin: 50px 0%;
+  transform-origin: 50px 0%;
   background: linear-gradient(81deg, rgb(255, 255, 255) 0%, rgb(237, 238, 229) 29%, rgb(227, 224, 193) 60%, rgb(243, 243, 242) 100%);
 }
 
@@ -138,14 +138,14 @@ html {
 
 #preview-area {
   position: absolute;
-  top: 53%;
+  top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
 }
 
 #spinners li {
-  height: 60px;
-  width: 60px;
+  height: 90px;
+  width: 90px;
   right: 0;
   left: 0;
   z-index: 10;
