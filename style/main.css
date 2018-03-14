@@ -69,3 +69,13 @@ body {
 .top-menu>a {
   width: 65%;
 }
+
+.footer-icon {
+  height: 50px;
+}
+
+.footer-bar {
+  width: 100%;
+  align-items: center;
+  justify-content: space-between;
+}
