@@ -11,10 +11,10 @@ window.addEventListener('load', () => {
       $(window).scroll(() => {
         if ($(window).scrollTop() >= window.innerHeight / 9) {
           // $('.top_menu').fadeIn();
-          $('.home_page_logo').fadeOut();
+          // $('.home_page_logo').fadeOut();
         } else {
           // $('.top_menu').fadeOut();
-          $('.home_page_logo').fadeIn();
+          // $('.home_page_logo').fadeIn();
         }
       });
     });
