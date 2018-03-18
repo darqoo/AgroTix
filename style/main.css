@@ -1,3 +1,8 @@
+* {
+  border: 1px solid red;
+}
+
+
 @font-face {
   font-family: "Raleway-regular";
   src: url("../fonts/Raleway-v4020-Regular.otf");
@@ -86,6 +91,11 @@ body {
 
 .mobile-show {
   display: none;
+}
+
+.bg_blur_for_site {
+  width: 100vw;
+  height: 100vh;
 }
 
 @media (max-width: 768px) {
