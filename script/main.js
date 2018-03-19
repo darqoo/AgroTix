@@ -6,13 +6,6 @@ window.addEventListener('load', () => {
 
 (() => {
   $(document).ready(() => {
-    $(() => {
-      $(window).scroll(() => {
-        if ($(window).scrollTop() >= window.innerHeight / 9) {
-        } else {
-        }
-      });
-    });
     $(window).scroll(() => {
       if ($(window).scrollTop() == 0) {
         $('.bottom-menu').fadeIn();
@@ -24,5 +17,5 @@ window.addEventListener('load', () => {
 })();
 
 $(window).click(function() {
-    $('.collapse').collapse('hide');
+  $('.collapse').collapse('hide');
 })
