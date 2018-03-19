@@ -2,7 +2,6 @@
   border: 1px solid red;
 } */
 
-
 @font-face {
   font-family: "Raleway-regular";
   src: url("../fonts/Raleway-v4020-Regular.otf");
@@ -114,5 +113,27 @@ body {
   .footer-bar {
     flex-direction: row-reverse;
     justify-content: space-between;
+  }
+}
+
+@media screen and (orientation: landscape) {
+  .home_page_logo img {
+    width: 50%;
+  }
+  .home_page_logo {
+    top: 33vh;
+  }
+  .menu_logo {
+    width: 62%;
+  }
+  .navbar-toggler-icon {
+    width: 1.2em;
+    height: 1.2em;
+  }
+  .navbar {
+    padding: 0.2rem 1rem;
+  }
+  .footer-icon {
+    height: 23px;
   }
 }

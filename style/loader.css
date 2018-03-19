@@ -160,3 +160,13 @@
     -webkit-transform: rotate(360deg)
   }
 }
+
+@media screen and (orientation: landscape) {
+  .loader_logo {
+    width: 140px;
+    top: 40%;
+  }
+  .preview-area {
+    top: 72%;
+  }
+}
