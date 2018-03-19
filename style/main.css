@@ -13,10 +13,6 @@
   src: url("../fonts/Raleway-v4020-Bold.otf");
 }
 
-html {
-  height: 100%;
-}
-
 body {
   position: relative;
   overflow-x: hidden;
@@ -28,6 +24,7 @@ body {
 }
 
 #major {
+  position: relative;
   width: 100vw;
   height: 100vh;
 }
@@ -73,6 +70,10 @@ body {
 
 .top-menu>a {
   width: 65%;
+}
+
+.bottom-menu {
+  position: relative;
 }
 
 .footer-social-icons {
