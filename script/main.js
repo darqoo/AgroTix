@@ -7,7 +7,7 @@ window.addEventListener('load', () => {
 (() => {
   $(document).ready(() => {
     $(window).scroll(() => {
-      if ($(window).scrollTop() == 0) {
+      if ($(window).scrollTop() == 0 || window.scrollY + window.innerHeight === document.body.offsetHeight) {
         $('.bottom-menu').fadeIn();
       } else {
         $('.bottom-menu').fadeOut();
