@@ -18,10 +18,10 @@ window.addEventListener('load', () => {
         event.preventDefault();
         var hash = this.hash;
         $('html, body').animate({
-          scrollTop: $(hash).offset().top - 61
+          scrollTop: window.innerHeight >= 400 ? $(hash).offset().top - 61 : $(hash).offset().top
         }, 800, function() {
           window.location.hash = hash;
-          window.scrollTo(0, $(hash).offset().top - 61);
+          window.scrollTo(0, window.innerHeight >= 400 ? $(hash).offset().top - 61 : $(hash).offset().top);
 
 
         });
