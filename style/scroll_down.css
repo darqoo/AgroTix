@@ -60,8 +60,8 @@
 
 @media screen and (orientation: landscape) {
   #section05 a {
-    padding-top: 75px;
+    padding-top: 141px;
   }
   #section05 a span {
-    top: 0;
+    top: 80px;
 }
