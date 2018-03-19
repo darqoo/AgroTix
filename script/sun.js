@@ -1,18 +1,4 @@
 let interval = 180000;
-let animation = 'stop';
-let testMinute = 1;
-let testHour = 1;
-
-var testClock = () => {
-  let tickingClock = setInterval(() => {
-    if (testMinute == 60) {
-      testMinute = 1;
-      testHour < 24 ? testHour += 1 : testHour = 0;
-    } else {
-      testMinute += 1;
-    }
-  }, 50);
-}
 
 renderBackground();
 
@@ -25,44 +11,13 @@ var renderInterval = (i) => {
 
 renderInterval(180000);
 
-$('#check').click(() => {
-  if (animation == 'start') {
-    $('#check').text('Check it out');
-    animation = 'stop';
-    renderInterval(180000);
-    renderBackground();
-  } else {
-    testClock();
-    $('#check').text('STOP');
-    animation = 'start';
-    renderBackground();
-    renderInterval(100);
-  }
-})
-
 function timeOfDay() {
-  switch (animation) {
-    case 'stop':
-      var date = new Date();
-      return {
-        day: date.getDate(),
-        month: date.getMonth() + 1,
-        hour: date.getHours(),
-        minute: date.getMinutes()
-      }
-      break;
-    case 'start':
-      var date = new Date();
-      console.log(testHour + ' ' + testMinute);
-      return {
-        day: date.getDate(),
-        month: date.getMonth() + 1,
-        minute: testMinute,
-        hour: testHour
-      }
-      break;
-    default:
-
+  var date = new Date();
+  return {
+    day: date.getDate(),
+    month: date.getMonth() + 1,
+    hour: date.getHours(),
+    minute: date.getMinutes()
   }
 }
 
@@ -128,12 +83,9 @@ function imageForTimeOfDay() {
     }
   } else if (presentTime >= (timeOfSunrise + todayDayLength) && presentTime <= (timeOfSunrise + todayDayLength + 30)) {
     return {
-      srcUnder: (() => `url('./images/active_bg/11.jpg')`
-      )(),
-      srcAbove: (() => `url('./images/active_bg/10.jpg')`
-      )(),
-      opacity: (() => (30 - (presentTime - timeOfSunrise - todayDayLength)) / 30
-      )()
+      srcUnder: (() => `url('./images/active_bg/11.jpg')`)(),
+      srcAbove: (() => `url('./images/active_bg/10.jpg')`)(),
+      opacity: (() => (30 - (presentTime - timeOfSunrise - todayDayLength)) / 30)()
     }
   } else if (presentTime >= (timeOfSunrise + todayDayLength + 30) && presentTime <= (timeOfSunrise + todayDayLength + 30 + 60)) {
     return {
