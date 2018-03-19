@@ -40,7 +40,7 @@ body {
 .home_page_logo {
   position: absolute;
   top: 50vh;
-  left: 50vw;
+  left: 50%;
   transform: translate(-50%, -50%);
   text-align: center;
 }
@@ -99,6 +99,12 @@ body {
   height: 100vh;
 }
 
+@media (max-width: 575px) {
+  .home_page_logo {
+    top: 37vh;
+  }
+}
+
 @media (max-width: 768px) {
   .menu_burger {
     text-align: center;
@@ -116,7 +122,9 @@ body {
   }
 }
 
-@media screen and (orientation: landscape) {
+@media screen
+and (max-height: 400px)
+and (orientation: landscape) {
   .home_page_logo img {
     width: 50%;
   }

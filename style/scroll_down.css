@@ -58,7 +58,15 @@
   transform: translate(-50%, 0);
 }
 
-@media screen and (orientation: landscape) {
+@media (max-width: 575px) {
+  .arrow {
+    bottom: 20px;
+  }
+}
+
+@media screen
+and (max-height: 400px)
+and (orientation: landscape) {
   #section05 a {
     padding-top: 141px;
   }
