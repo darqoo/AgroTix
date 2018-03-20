@@ -6,8 +6,6 @@ window.addEventListener('load', () => {
 
 $(document).ready(() => {
 
-
-
   var a = $('.nav-item a')
   c = [];
   for (let i = 0; i < a.length; i++) {
@@ -19,17 +17,14 @@ $(document).ready(() => {
     var position = 0;
   } else {
     position = c.indexOf(window.location.hash);
-    console.log(position);
   }
 
   $('a').on('click', function() {
     position = c.indexOf(this.hash);
-    console.log(position);
   })
 
   var sCroll = (e) => {
     if (e.deltaY > 0) {
-      console.log('do dolu');
       document.removeEventListener('wheel', sCroll);
       if (window.scrollY + window.innerHeight < $(c[position]).offset().top + $(c[position]).innerHeight() || window.scrollY + window.innerHeight === $(c[c.length - 1]).offset().top + $(c[c.length - 1]).innerHeight()) {
         $('body').css('overflow', '');
@@ -51,12 +46,10 @@ $(document).ready(() => {
         });
       }
     } else {
-      console.log('do gory');
       document.removeEventListener('wheel', sCroll);
       if (window.scrollY === 0 || window.scrollY > $(c[position]).offset().top) {
         $('body').css('overflow', '');
         document.addEventListener('wheel', sCroll);
-        console.log('scroll');
       } else if (window.scrollY <= $(c[position]).offset().top) {
         $('body').css('overflow', 'hidden');
         if (e.deltaY > 0 && position !== c.length - 1) {
@@ -76,7 +69,6 @@ $(document).ready(() => {
     }
   }
 
-
   document.addEventListener('wheel', sCroll);
 
   $(window).scroll((e) => {
@@ -85,8 +77,6 @@ $(document).ready(() => {
     } else {
       $('.bottom-menu').fadeOut();
     }
-
-
 
   });
   $("a").on('click', function(event) {
@@ -102,7 +92,6 @@ $(document).ready(() => {
     }
   });
 });
-
 
 $(window).click(function() {
   $('.collapse').collapse('hide');
