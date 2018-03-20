@@ -31,10 +31,14 @@ $(document).ready(() => {
     var Y1;
     window.addEventListener('touchstart', function(event) {
       Y1 = event.changedTouches[0].clientY;
+      event.preventDefault();
+    }, {
+      passive: false
     });
 
     window.addEventListener('touchend', function(event) {
       var Y2 = event.changedTouches[0].clientY;
+      event.preventDefault();
       var direction = Y1 - Y2;
       if (direction < 0) {
         console.log('do gory');
@@ -83,6 +87,8 @@ $(document).ready(() => {
           });
         }
       }
+    }, {
+      passive: false
     });
   };
   fingerScroll();
