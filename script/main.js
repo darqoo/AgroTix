@@ -68,8 +68,7 @@ $(document).ready(() => {
       }
     }
   }
-
-  document.addEventListener('wheel', sCroll);
+window.navigator.maxTouchPoints < 1 ? document.addEventListener('wheel', sCroll) : null;
 
   $(window).scroll((e) => {
     if ($(window).scrollTop() == 0 || window.scrollY + window.innerHeight === document.body.offsetHeight) {
