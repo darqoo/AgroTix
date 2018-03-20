@@ -6,13 +6,26 @@ window.addEventListener('load', () => {
 
 $(document).ready(() => {
 
-  var position = 0;
+
 
   var a = $('.nav-item a')
   c = [];
   for (let i = 0; i < a.length; i++) {
     c.push(a[i].hash);
   }
+
+  if (c.indexOf(window.location.hash) == -1) {
+    window.location.hash = c[0];
+    var position = 0;
+  } else {
+    position = c.indexOf(window.location.hash);
+    console.log(position);
+  }
+
+  $('a').on('click', function() {
+    position = c.indexOf(this.hash);
+    console.log(position);
+  })
 
   var fingerScroll = () => {
     var Y1;
@@ -23,7 +36,7 @@ $(document).ready(() => {
     window.addEventListener('touchend', function(event) {
       var Y2 = event.changedTouches[0].clientY;
       var direction = Y1 - Y2;
-      if (direction < -50) {
+      if (direction < 0) {
         console.log('do gory');
 
         document.removeEventListener('wheel', sCroll);
@@ -47,7 +60,7 @@ $(document).ready(() => {
             $('body').css('overflow', '');
           });
         }
-      } else if (direction > 50) {
+      } else if (direction > 0) {
         console.log('do dolu');
         document.removeEventListener('wheel', sCroll);
         if (window.scrollY + window.innerHeight < $(c[position]).offset().top + $(c[position]).innerHeight() || window.scrollY + window.innerHeight === $(c[c.length - 1]).offset().top + $(c[c.length - 1]).innerHeight()) {
