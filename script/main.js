@@ -16,23 +16,19 @@ window.addEventListener('load', () => {
     }
 
     var sCroll = (e) => {
-      console.log(window.scrollY + window.innerHeight);
-      console.log($(c[position]).offset().top + $(c[position]).innerHeight());
-      document.removeEventListener('wheel', sCroll);
-      (tryScollPosition = () => {
-        if (window.scrollY + window.innerHeight < $(c[position]).offset().top + $(c[position]).innerHeight()) {
+      if (e.deltaY > 0) {
+        console.log('do dolu');
+        document.removeEventListener('wheel', sCroll);
+        if (window.scrollY + window.innerHeight < $(c[position]).offset().top + $(c[position]).innerHeight() || window.scrollY + window.innerHeight === $(c[c.length - 1]).offset().top + $(c[c.length - 1]).innerHeight() ) {
           $('body').css('overflow', '');
-          console.log('scroluje')
           document.addEventListener('wheel', sCroll);
-        } else {
+        } else if (window.scrollY + window.innerHeight >= $(c[position]).offset().top + $(c[position]).innerHeight() && position !== c.length - 1) {
           $('body').css('overflow', 'hidden');
-          console.log('przeskok');
           if (e.deltaY > 0 && position !== c.length - 1) {
             position++
           } else if (e.deltaY < 0 && position !== 0) {
             position--
           }
-          console.log(position);
           $('html, body').animate({
             scrollTop: window.innerHeight >= 400 ? $(c[position]).offset().top - 61 : $(c[position]).offset().top
           }, 800, function() {
@@ -42,7 +38,30 @@ window.addEventListener('load', () => {
             $('body').css('overflow', '');
           });
         }
-      })();
+      } else {
+        console.log('do gory');
+        document.removeEventListener('wheel', sCroll);
+        if (window.scrollY === 0 || window.scrollY > $(c[position]).offset().top) {
+          $('body').css('overflow', '');
+          document.addEventListener('wheel', sCroll);
+          console.log('scroll');
+        } else if (window.scrollY <= $(c[position]).offset().top) {
+          $('body').css('overflow', 'hidden');
+          if (e.deltaY > 0 && position !== c.length - 1) {
+            position++
+          } else if (e.deltaY < 0 && position !== 0) {
+            position--
+          }
+          $('html, body').animate({
+            scrollTop: window.innerHeight >= 400 ? $(c[position]).offset().top - 61 : $(c[position]).offset().top
+          }, 800, function() {
+            window.location.hash = c[position];
+            window.scrollTo(0, window.innerHeight >= 400 ? $(c[position]).offset().top - 61 : $(c[position]).offset().top);
+            document.addEventListener('wheel', sCroll);
+            $('body').css('overflow', '');
+          });
+        }
+      }
     }
 
 
