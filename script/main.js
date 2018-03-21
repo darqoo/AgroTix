@@ -14,14 +14,9 @@ $(document).ready(() => {
     c.push(a[i].hash);
   }
 
-  if (c.indexOf(window.location.hash) == -1) {
-    window.location.hash = c[0];
-    position = 0;
-  } else {
-    position = c.indexOf(window.location.hash);
-  }
+  c.indexOf(window.location.hash) == -1 ? window.location.hash = c[0] : position = c.indexOf(window.location.hash)
 
-  function smoothScroll(position) {
+  let smoothScroll = (position) => {
     $('html, body').animate({
       scrollTop: window.innerHeight >= 400 ? $(c[position]).offset().top - 61 : $(c[position]).offset().top
     }, 800, function() {
@@ -69,17 +64,12 @@ $(document).ready(() => {
   window.navigator.maxTouchPoints < 1 ? document.addEventListener('wheel', sCroll) : null;
 
   $(window).scroll((e) => {
-    if ($(window).scrollTop() == 0 || window.scrollY + window.innerHeight === document.body.offsetHeight) {
-      $('.bottom-menu').fadeIn();
-    } else {
-      $('.bottom-menu').fadeOut();
-    }
-
+    $(window).scrollTop() == 0 || window.scrollY + window.innerHeight === document.body.offsetHeight ? $('.bottom-menu').fadeIn() : $('.bottom-menu').fadeOut()
   });
+
   $("a").on('click', function(event) {
-    position = c.indexOf(this.hash);
     event.preventDefault();
-    var hash = this.hash;
+    position = c.indexOf(this.hash);
     smoothScroll(position);
   });
 });
