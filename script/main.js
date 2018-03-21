@@ -4,8 +4,9 @@ window.addEventListener('load', () => {
   }, 1000, 'linear', () => $("#loader").hide())
 });
 
-$(document).ready(() => {
+$(window).click(() => $('.collapse').collapse('hide'))
 
+$(document).ready(() => {
   let a = $('.nav-item a')
   let c = [];
   let position = 0;
@@ -27,7 +28,8 @@ $(document).ready(() => {
   }
 
   let sCroll = (e) => {
-    let posEndContent = window.scrollY + window.innerHeight;
+    let posEndContent = $(c[c.length - 1]).offset().top + $(c[c.length - 1]).innerHeight();
+    let posDownScrollY = window.scrollY + window.innerHeight;
     let posHash = $(c[position]).offset().top + $(c[position]).innerHeight();
     let cPosition = $(c[position]).offset().top;
 
@@ -39,9 +41,9 @@ $(document).ready(() => {
     }
 
     if (e.deltaY > 0) {
-      if (posEndContent < posHash || posEndContent === $(c[c.length - 1]).offset().top + $(c[c.length - 1]).innerHeight()) {
+      if (posDownScrollY < posHash || posDownScrollY === posEndContent) {
         startScrolling();
-      } else if (posEndContent >= posHash && position !== c.length - 1) {
+      } else if (posDownScrollY >= posHash && position !== c.length - 1) {
         $('body').css('overflow', 'hidden');
         position !== c.length - 1 ? position++ : null;
         smoothScroll(position);
@@ -71,5 +73,3 @@ $(document).ready(() => {
     }
   });
 });
-
-$(window).click(() => $('.collapse').collapse('hide'))
