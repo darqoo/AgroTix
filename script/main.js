@@ -7,25 +7,24 @@ window.addEventListener('load', () => {
 $(document).ready(() => {
 
   var a = $('.nav-item a')
-  c = [];
+  var c = [];
+  var position = 0;
+
   for (let i = 0; i < a.length; i++) {
     c.push(a[i].hash);
   }
 
   if (c.indexOf(window.location.hash) == -1) {
     window.location.hash = c[0];
-    var position = 0;
+    position = 0;
   } else {
     position = c.indexOf(window.location.hash);
   }
 
-  $('a').on('click', function() {
-    position = c.indexOf(this.hash);
-  })
 
   var sCroll = (e) => {
+    document.removeEventListener('wheel', sCroll);
     if (e.deltaY > 0) {
-      document.removeEventListener('wheel', sCroll);
       if (window.scrollY + window.innerHeight < $(c[position]).offset().top + $(c[position]).innerHeight() || window.scrollY + window.innerHeight === $(c[c.length - 1]).offset().top + $(c[c.length - 1]).innerHeight()) {
         $('body').css('overflow', '');
         document.addEventListener('wheel', sCroll);
@@ -46,7 +45,6 @@ $(document).ready(() => {
         });
       }
     } else {
-      document.removeEventListener('wheel', sCroll);
       if (window.scrollY === 0 || window.scrollY > $(c[position]).offset().top) {
         $('body').css('overflow', '');
         document.addEventListener('wheel', sCroll);
@@ -68,7 +66,7 @@ $(document).ready(() => {
       }
     }
   }
-window.navigator.maxTouchPoints < 1 ? document.addEventListener('wheel', sCroll) : null;
+  window.navigator.maxTouchPoints < 1 ? document.addEventListener('wheel', sCroll) : null;
 
   $(window).scroll((e) => {
     if ($(window).scrollTop() == 0 || window.scrollY + window.innerHeight === document.body.offsetHeight) {
@@ -79,16 +77,15 @@ window.navigator.maxTouchPoints < 1 ? document.addEventListener('wheel', sCroll)
 
   });
   $("a").on('click', function(event) {
-    if (this.hash !== "") {
-      event.preventDefault();
-      var hash = this.hash;
-      $('html, body').animate({
-        scrollTop: window.innerHeight >= 400 ? $(hash).offset().top - 61 : $(hash).offset().top
-      }, 800, function() {
-        window.location.hash = hash;
-        window.scrollTo(0, window.innerHeight >= 400 ? $(hash).offset().top - 61 : $(hash).offset().top);
-      });
-    }
+    position = c.indexOf(this.hash);
+    event.preventDefault();
+    var hash = this.hash;
+    $('html, body').animate({
+      scrollTop: window.innerHeight >= 400 ? $(hash).offset().top - 61 : $(hash).offset().top
+    }, 800, function() {
+      window.location.hash = hash;
+      window.scrollTo(0, window.innerHeight >= 400 ? $(hash).offset().top - 61 : $(hash).offset().top);
+    });
   });
 });
 
