@@ -34,15 +34,19 @@ $(document).ready(() => {
   var sCroll = (e) => {
     document.removeEventListener('wheel', sCroll);
 
+    let posEndContent = window.scrollY + window.innerHeight;
+    let posHash = $(c[position]).offset().top + $(c[position]).innerHeight();
+    let cPosition = $(c[position]).offset().top;
+
     let startScrolling = () => {
       $('body').css('overflow', '');
       document.addEventListener('wheel', sCroll);
     }
 
     if (e.deltaY > 0) {
-      if (window.scrollY + window.innerHeight < $(c[position]).offset().top + $(c[position]).innerHeight() || window.scrollY + window.innerHeight === $(c[c.length - 1]).offset().top + $(c[c.length - 1]).innerHeight()) {
+      if (posEndContent < posHash || posEndContent === $(c[c.length - 1]).offset().top + $(c[c.length - 1]).innerHeight()) {
         startScrolling();
-      } else if (window.scrollY + window.innerHeight >= $(c[position]).offset().top + $(c[position]).innerHeight() && position !== c.length - 1) {
+      } else if (posEndContent >= posHash && position !== c.length - 1) {
         $('body').css('overflow', 'hidden');
         if (position !== c.length - 1) {
           position++
@@ -50,9 +54,9 @@ $(document).ready(() => {
         smoothScroll(position);
       }
     } else if (e.deltaY < 0) {
-      if (window.scrollY === 0 || window.scrollY > $(c[position]).offset().top) {
+      if (window.scrollY === 0 || window.scrollY > cPosition) {
         startScrolling();
-      } else if (window.scrollY <= $(c[position]).offset().top) {
+      } else if (window.scrollY <= cPosition) {
         $('body').css('overflow', 'hidden');
         if (position !== 0) {
           position--
@@ -61,6 +65,7 @@ $(document).ready(() => {
       }
     }
   }
+
   window.navigator.maxTouchPoints < 1 ? document.addEventListener('wheel', sCroll) : null;
 
   $(window).scroll((e) => {
