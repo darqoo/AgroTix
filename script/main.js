@@ -65,8 +65,10 @@ $(document).ready(() => {
 
   $("a").on('click', function(event) {
     event.preventDefault();
-    position = c.indexOf(this.hash);
-    smoothScroll(position);
+    if (c.indexOf(this.hash) !== position) {
+      position = c.indexOf(this.hash);
+      smoothScroll(position);
+    }
   });
 });
 
