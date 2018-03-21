@@ -33,10 +33,15 @@ $(document).ready(() => {
 
   var sCroll = (e) => {
     document.removeEventListener('wheel', sCroll);
+
+    let startScrolling = () => {
+      $('body').css('overflow', '');
+      document.addEventListener('wheel', sCroll);
+    }
+
     if (e.deltaY > 0) {
       if (window.scrollY + window.innerHeight < $(c[position]).offset().top + $(c[position]).innerHeight() || window.scrollY + window.innerHeight === $(c[c.length - 1]).offset().top + $(c[c.length - 1]).innerHeight()) {
-        $('body').css('overflow', '');
-        document.addEventListener('wheel', sCroll);
+        startScrolling();
       } else if (window.scrollY + window.innerHeight >= $(c[position]).offset().top + $(c[position]).innerHeight() && position !== c.length - 1) {
         $('body').css('overflow', 'hidden');
         if (position !== c.length - 1) {
@@ -44,14 +49,9 @@ $(document).ready(() => {
         }
         smoothScroll(position);
       }
-    }
-
-
-
-    else if (e.deltaY < 0) {
+    } else if (e.deltaY < 0) {
       if (window.scrollY === 0 || window.scrollY > $(c[position]).offset().top) {
-        $('body').css('overflow', '');
-        document.addEventListener('wheel', sCroll);
+        startScrolling();
       } else if (window.scrollY <= $(c[position]).offset().top) {
         $('body').css('overflow', 'hidden');
         if (position !== 0) {
@@ -60,8 +60,6 @@ $(document).ready(() => {
         smoothScroll(position);
       }
     }
-
-
   }
   window.navigator.maxTouchPoints < 1 ? document.addEventListener('wheel', sCroll) : null;
 
