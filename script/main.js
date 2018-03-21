@@ -6,9 +6,9 @@ window.addEventListener('load', () => {
 
 $(document).ready(() => {
 
-  var a = $('.nav-item a')
-  var c = [];
-  var position = 0;
+  let a = $('.nav-item a')
+  let c = [];
+  let position = 0;
 
   for (let i = 0; i < a.length; i++) {
     c.push(a[i].hash);
@@ -21,6 +21,15 @@ $(document).ready(() => {
     position = c.indexOf(window.location.hash);
   }
 
+  function smoothScroll(position) {
+    $('html, body').animate({
+      scrollTop: window.innerHeight >= 400 ? $(c[position]).offset().top - 61 : $(c[position]).offset().top
+    }, 800, function() {
+      window.location.hash = c[position];
+      window.scrollTo(0, window.innerHeight >= 400 ? $(c[position]).offset().top - 61 : $(c[position]).offset().top);
+      document.addEventListener('wheel', sCroll);
+    });
+  }
 
   var sCroll = (e) => {
     document.removeEventListener('wheel', sCroll);
@@ -30,41 +39,29 @@ $(document).ready(() => {
         document.addEventListener('wheel', sCroll);
       } else if (window.scrollY + window.innerHeight >= $(c[position]).offset().top + $(c[position]).innerHeight() && position !== c.length - 1) {
         $('body').css('overflow', 'hidden');
-        if (e.deltaY > 0 && position !== c.length - 1) {
+        if (position !== c.length - 1) {
           position++
-        } else if (e.deltaY < 0 && position !== 0) {
-          position--
         }
-        $('html, body').animate({
-          scrollTop: window.innerHeight >= 400 ? $(c[position]).offset().top - 61 : $(c[position]).offset().top
-        }, 800, function() {
-          window.location.hash = c[position];
-          window.scrollTo(0, window.innerHeight >= 400 ? $(c[position]).offset().top - 61 : $(c[position]).offset().top);
-          document.addEventListener('wheel', sCroll);
-          $('body').css('overflow', '');
-        });
+        smoothScroll(position);
       }
-    } else {
+    }
+
+
+
+    else if (e.deltaY < 0) {
       if (window.scrollY === 0 || window.scrollY > $(c[position]).offset().top) {
         $('body').css('overflow', '');
         document.addEventListener('wheel', sCroll);
       } else if (window.scrollY <= $(c[position]).offset().top) {
         $('body').css('overflow', 'hidden');
-        if (e.deltaY > 0 && position !== c.length - 1) {
-          position++
-        } else if (e.deltaY < 0 && position !== 0) {
+        if (position !== 0) {
           position--
         }
-        $('html, body').animate({
-          scrollTop: window.innerHeight >= 400 ? $(c[position]).offset().top - 61 : $(c[position]).offset().top
-        }, 800, function() {
-          window.location.hash = c[position];
-          window.scrollTo(0, window.innerHeight >= 400 ? $(c[position]).offset().top - 61 : $(c[position]).offset().top);
-          document.addEventListener('wheel', sCroll);
-          $('body').css('overflow', '');
-        });
+        smoothScroll(position);
       }
     }
+
+
   }
   window.navigator.maxTouchPoints < 1 ? document.addEventListener('wheel', sCroll) : null;
 
@@ -80,12 +77,7 @@ $(document).ready(() => {
     position = c.indexOf(this.hash);
     event.preventDefault();
     var hash = this.hash;
-    $('html, body').animate({
-      scrollTop: window.innerHeight >= 400 ? $(hash).offset().top - 61 : $(hash).offset().top
-    }, 800, function() {
-      window.location.hash = hash;
-      window.scrollTo(0, window.innerHeight >= 400 ? $(hash).offset().top - 61 : $(hash).offset().top);
-    });
+    smoothScroll(position);
   });
 });
 
